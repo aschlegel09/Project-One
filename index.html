@@ -25,7 +25,37 @@
 </head>
 
 <body>
+
     <div id="map"></div>
+    
+        <div class="container">
+            <div class="row">
+                <div class="form-group">
+                    <label for="origin">Origin</label>
+                    <input type="text" class="form-control" id="origin" placeholder="PHL">
+                    <small id="originHelp" class="form-text text-muted">Should be three letters</small>
+    
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="NYC">
+                    <small id="destinationHelp" class="form-text text-muted">Should be three letters</small>
+    
+                    <label for="destination">Departure Date</label>
+                    <input type="date" class="form-control" id="depDate" placeholder="2018-01-30">
+    
+                    <label for="destination">Destination</label>
+                    <input type="date" class="form-control" id="retDate" placeholder="2018-02-19">
+    
+                    <button id="submit" class="mt-3">Submit</button>
+                </div>
+            </div>
+            <div class="row">
+                <div id="loader" class="loader"></div>
+                <div id="results"></div>
+            </div>
+            <div class="row">
+                <div id="firebase_test"></div>
+            </div>
+        </div>
 
     <div class="container">
             <div class="row">
