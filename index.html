@@ -1,75 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Collapsible sidebar using Bootstrap 4</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
         crossorigin="anonymous">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-        crossorigin="anonymous">
-    <!-- Local CSS File -->
+    <!-- Our Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Firebase link -->
-    <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
-    <!-- moment shows current time  -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
-    <script src="assets/javascript/amadeus.js" defer></script>
-    <script src="assets/javascript/airlineCodes.js" defer></script>
-
-    <title>Project One</title>
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div id="map"></div>
 
-    <div class="container">
-            <div class="row">
-                <div class="form-group">
-                    <label for="origin">Origin</label>
-                    <input type="text" class="form-control" id="origin" placeholder="PHL">
-                    <small id="originHelp" class="form-text text-muted">Should be three letters</small>
-    
-                    <label for="destination">Destination</label>
-                    <input type="text" class="form-control" id="destination" placeholder="NYC">
-                    <small id="destinationHelp" class="form-text text-muted">Should be three letters</small>
-    
-                    <label for="destination">Departure Date</label>
-                    <input type="date" class="form-control" id="depDate" placeholder="2018-01-30">
-    
-                    <label for="destination">Destination</label>
-                    <input type="date" class="form-control" id="retDate" placeholder="2018-02-19">
-    
-                    <button id="submit" class="mt-3">Submit</button>
-                    <input type="button" value="Hotels" onclick="window.open('google.html','Hotels')">
+    <div class="wrapper" id="wrapper">
+
+        <!-- Sidebar -->
+        <div class="jumbotron" style="width: 100%; padding: 80px; margin-bottom: 0px">
+            <!-- <h1 id = "logo"></h1> -->
+
+            <nav class="navbar1 navbar-expand-lg">
+                <!-- <div class="navbar transparent navbar-inverse">
+                        <div class="navbar-inner"> -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon" style="color:white"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        </li>
+                        <li class="nav-item">
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false" style="color:white; float:right;">
+                                Menus
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Book A Flight</a>
+                                <a class="dropdown-item" href="#">Choose a Hotel</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Add a Destination</a>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                    </li>
+                                    <li class="nav-item">
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false" style="color:white">
+                                            Book a Flight
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="#">Action</a>
+                                            <a class="dropdown-item" href="#">Another action</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Something else here</a>
+                                        </div>
+                                    </li>
+                                    <li class="nav-item">
+                                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                            <ul class="navbar-nav mr-auto">
+                                                <li class="nav-item active">
+                                                </li>
+                                                <li class="nav-item">
+                                                </li>
+                                                <li class="nav-item dropdown">
+                                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false" style="color:white">
+                                                        Contact
+                                                    </a>
+                                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                        <a class="dropdown-item" href="#">Action</a>
+                                                        <a class="dropdown-item" href="#">Another action</a>
+                                                        <div class="dropdown-divider"></div>
+                                                        <a class="dropdown-item" href="#">Something else here</a>
+                                                    </div>
+                                                </li>
+                                                <li class="nav-item">
+                                                </li>
+                                            </ul>
+                                            <li class="nav-item">
+                                                <li class="nav-item">
+                                                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                                        <ul class="navbar-nav mr-auto">
+                                                            <li class="nav-item active">
+                                                            </li>
+                                                            <li class="nav-item">
+                                                            </li>
+                                                            <li class="nav-item dropdown">
+                                                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                                                                    aria-expanded="false" style="color:white">
+                                                                    About
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                                                    <a class="dropdown-item" href="#">Action</a>
+                                                                    <a class="dropdown-item" href="#">Another action</a>
+                                                                    <div class="dropdown-divider"></div>
+                                                                    <a class="dropdown-item" href="#">Something else here</a>
+                                                                </div>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                        </div>
+            </nav>
+
+            <!-- <a class="navbar-brand" href="#">
+                    <img src="assets/images/logo.png" width="200" height="200" alt="">
+                  </a> -->
+
+            <div id="logo"></div>
+            <h1 class="display-4" style="text-align: left; "></h1>
+            <!-- Get tutor to help -->
+            <!-- put img in the jumbotron -->
+            <!-- <h1 class="display-4" style="text-align: left; background: url(assets/images/logo.png)">
+            <span style = "background: url(assets/images/logo.png)"></span></h1>  -->
+
+            <!-- <i></i> class="fas fa-train"></i> -->
+            <a href="#" class="btn btn-default" id="menu-toggle"><i class="fas fa-bars"></i></a>
+            </div>
+            <div id="sidebar-wrapper" class="edit">
+                <div class="container edit" style="height: 100%">
+                    <h5 class="card-header" style="background-color: #002763 ; color: white;">Book
+                        a Flight
+                    </h5>
+                    <div class="card-body edit">
+                        <form>
+                            <div class="form-group">
+                                <label for="train name" style="color:white">Origin</label>
+                                <input type="text" class="form-control" id="Train-display">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination" style="color: white">Destination</label>
+                                <input type="text" class="form-control" id="Destination-display">
+                            </div>
+
+
+                            <div class="form-group">
+                                <label for="first train" style="color:white">Date Departing</label>
+                                <input type="text" class="form-control" id="FirstTrain-Display">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="frequency" style="color:white">Returning</label>
+                                <input type="text" class="form-control" id="Frequency-display">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="frequency" style="color: white">Passengers</label>
+                                <input type="text" class="form-control" id="Frequency-display">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="frequency" style="color:white">Class</label>
+                                <input type="text" class="form-control" id="Frequency-display">
+                            </div>
+
+                            <input class="btn btn-primary" type="submit" id="submit-btn" value="next" style="background-color: #002763">
+                        </form>
+                        <form>
+                            <!-- <div class="form-group">
+                                <label for="name">Origin</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="destination">Destination</label>
+                                <input type="text" class="form-control" id="destination">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="time">Date Departing</label>
+                                <input type="text" class="form-control" id="time">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency">Returning</label>
+                                <input type="text" class="form-control" id="frequency">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency">Passengers</label>
+                                <input type="text" class="form-control" id="frequency">
+                            </div>
+                            <div class="form-group">
+                                <label for="frequency">Class</label>
+                                <input type="text" class="form-control" id="frequency">
+                            </div>
+                            <input class="btn btn-primary" type="submit" id="train-btn" value="next" style="background-color: #180316">
+                        </form>
+                    </div> -->
+
+
                 </div>
             </div>
-            <div class="row">
-                <div id="loader" class="loader"></div>
-                <div id="results"></div>
+            <!-- Main content -->
+
+            <!-- <div id="page-content-wrapper"></div>
+            <div id="page-content-wrapper"></div>
+            <div class="row"></div>
+
+            <div class="container1 edit">
+                <div class="card">
+                    <h5 class="card-header">Book a Flight</h5>
+                    <div class="card-body edit">
+
+                    </div>
+                </div>
+
+                <div class="container2 edit">
+                    <div class="card">
+                        <h5 class="card-header">Book a Flight</h5>
+                        <div class="card-body edit">
+                            <form>
+                                <div class="form-group">
+                                    <label for="first train" style="color: #180316">Select a Hotel</label>
+                                    <input type="text" class="form-control" id="FirstTrain-Display">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="frequency" style="color: #180316">Select Hotel</label>
+                                    <input type="text" class="form-control" id="Frequency-display">
+                                </div>
+
+                                <input class="btn btn-primary" type="submit" id="submit-btn" value="next" style="background-color: #180316">
+                            </form>
+                        </div>
+                    </div>
+
+                </div> --> 
+
+                <nav class="navbar navbar-expand-lg" id="navbar" style="background-color: #002763">
+                    <p id="p1">Privacy Policy</p>
+                    <p id="p2">Terms of Service</p>
+                    <div class="container">
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+                </nav>
+
             </div>
-            <div class="row">
-                <div id="firebase_test"></div>
             </div>
         </div>
-
-<!-- Google Maps API
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgq_P-Hu3lzV7kvlp7DEHb0Daxw8ufoD8&callback=initMap&language=en&region=US"
-async defer></script> -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    </div>
+    </div>
+    <!-- Menu toggle script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("menuDisplayed");
+    });
+        </script> 
+    <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
         crossorigin="anonymous"></script>
-    <!-- Local JS File -->
-    <script src="assets/javascript/script.js"></script>
-    <script src="assets/javascript/google.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
