@@ -2,191 +2,152 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Tripster - Find Your Destination</title>
-    <!-- Bootstrap CSS CDN -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
         crossorigin="anonymous">
-    <!-- Our Custom CSS -->
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <!-- Local CSS File -->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Font Awesome JS -->
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
-        crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
-        crossorigin="anonymous"></script>
     <!-- Airline Codes -->
     <script src="assets/javascript/airlineCodes.js" defer></script>
     <!-- City Names -->
     <script src="assets/javascript/cityNames.js" defer></script>
     <!-- Flight API & Google Javascript-->
     <script src="assets/javascript/amadeus.js" defer></script>
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 
+
+    <title>Project One</title>
 </head>
 
 <body>
 
-    <div class="wrapper" id="wrapper">
 
-        <!-- Sidebar -->
-        <div class="jumbotron" style="width: 100%; padding: 80px; margin-bottom: 0px">
-            <!-- <h1 id = "logo"></h1> -->
 
-            <nav class="navbar1 navbar-expand-lg">
-                <!-- <div class="navbar transparent navbar-inverse">
-                        <div class="navbar-inner"> -->
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon" style="color:white"></span>
-                </button>
-            </nav>
+    <!-- Sidebar -->
+    <div class="jumbotron" ">
+        <img src = " assets/images/logo.png" id="logo"></div>
+    <h1 class="display-4" style="text-align: left; "></h1>
 
-            <!-- <a class="navbar-brand" href="#">
-                    <img src="assets/images/logo.png" width="200" height="200" alt="">
-                  </a> -->
+    </div>
+    <!-- Flights API -->
+    <div class="wrapper" id="wrapper" style="background-color:beige; border-style: solid; border-color: #3f88f5; margin: 50px auto; width: 1300px">
+        <h3 style="text-align: center">Book a Flight</h3>
+       
+        <div class="container" style="margin-left: 20px; margin-right: 20px">
+            <div class="row">
+                <div class="col-md-4" style="margin-top: 30px;">
+                    <div class="form-group">
+                        <label for="origin">Origin</label>
+                        <input type="text" class="form-control" id="origin" placeholder="PHL">
+                        <small id="originHelp" class="form-text text-muted">Should be three letters</small>
 
-            <div id="logo"></div>
-            <h1 class="display-4" style="text-align: left; "></h1>
-            <!-- Get tutor to help -->
-            <!-- put img in the jumbotron -->
-            <!-- <h1 class="display-4" style="text-align: left; background: url(assets/images/logo.png)">
-            <span style = "background: url(assets/images/logo.png)"></span></h1>  -->
+                        <label for="destination">Destination</label>
+                        <input type="text" class="form-control" id="destination" placeholder="JFK">
+                        <small id="destinationHelp" class="form-text text-muted">Should be three letters</small>
 
-            <!-- <i></i> class="fas fa-train"></i> -->
-            <a href="#" class="btn btn-default" id="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </a>
+                        <label for="destination">Departure Date</label>
+                        <input type="date" class="form-control" id="depDate" placeholder="2018-01-30">
+
+                        <label for="destination">Destination</label>
+                        <input type="date" class="form-control" id="retDate" placeholder="2018-02-19">
+
+                        <button type="button" class="btn btn-outline-primary mt-3" id="submit" style="margin-top: 10px">Search</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="loader" class="loader"></div>
+            <div id="flightResults"></div>
+
         </div>
-        <!-- Flights API -->
-        <div id="sidebar-wrapper" class="edit">
-            <div class="container edit" style="height: 100%">
-                <h5 class="card-header" style="background-color: #002763 ; color: white;">Book a Flight
-                </h5>
-                <div class="card-body edit">
-                    <form>
-                        <div class="form-group">
-                            <label for="origin" style="color:white">Origin</label>
-                            <input type="text" class="form-control" id="origin" placeholder="PHL">
-                        </div>
-                        <div class="form-group">
-                            <label for="destination" style="color: white">Destination</label>
-                            <input type="text" class="form-control" id="destination" placeholder="JFK">
-                        </div>
+    </div>
+
+    <!-- Google Maps -->
+    <div class="wrapper" id="wrapper" style="background-color:beige; border-style: solid; border-color: #3f88f5; margin: 50px auto; width: 1300px">
+
+        <h3 style="text-align: center">Hotel Near Your City</h3>
+        
+        <div class="container" style="margin-left: 20px;margin-right: 20px; margin-bottom: 30px">
+            <div class="row">
+                <div class="col-md-4">
+
+                    <input id="autocomplete" id="locationField" placeholder="Enter a city" type="text" style="border-radius: .25rem; width: 100%; height: calc(2.25rem + 2px);padding: .375rem .75rem;" />
 
 
-                        <div class="form-group">
-                            <label for="destination" style="color:white">Date Departing</label>
-                            <input type="date" class="form-control" id="depDate" placeholder="2018-01-30">
-                        </div>
+                    <div id="map" style="height: 400px; width: 380px; margin-top: 10px"></div>
+                    <!-- Google Directions -->
 
-                        <div class="form-group">
-                            <label for="destination" style="color:white">Returning</label>
-                            <input type="date" class="form-control" id="retDate" placeholder="2018-02-19">
-                        </div>
-                        <input class="btn btn-primary" type="submit" id="submit" value="Search for Flights" style="background-color: #002763">
-                    </form>
+                    <div id="right-panel">
+                        <p>Total Distance: <span id="total"></span></p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div id="listing">
+
+                        <table id=" resultsTable">
+                            <tbody id="results"></tbody>
+                        </table>
+                    </div>
+                </div>
+                <!-- Hotel Images -->
+                <div class="col-md-4">
+                    <div id="hotelImageDiv" style = "margin-left: 20px"></div>
+                </div>
+            </div>
+
+            <div style="display: none;">
+                <div id="info-content">
+                    <table>
+                        <tr id="iw-url-row" class="iw_table_row">
+                            <td id="iw-icon" class="iw_table_icon"></td>
+                            <td id="iw-url"></td>
+                        </tr>
+                        <tr id="iw-address-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Address:</td>
+                            <td id="iw-address"></td>
+                        </tr>
+                        <tr id="iw-phone-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Telephone:</td>
+                            <td id="iw-phone"></td>
+                        </tr>
+                        <tr id="iw-rating-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Rating:</td>
+                            <td id="iw-rating"></td>
+                        </tr>
+                        <tr id="iw-website-row" class="iw_table_row">
+                            <td class="iw_attribute_name">Website:</td>
+                            <td id="iw-website"></td>
+                        </tr>
+                        <button id="direct-button">Directions</button>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Body of Results -->
-    <div class="row col-md-12">
-        <div class="col-md-4">
-            <div class="row">
-                <!-- loading gif and flight results -->
-                <div id="loader" class="loader"></div>
-                <div id="flightResults"></div>
-            </div>
-        </div>
-    </div>
-    <!-- Google Maps -->
-    <div id="locationField">
-        <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div>
-    <div class="container"></div>
-    <div class="row">
-        <div class="col-md-6">
-            <!-- map -->
-            <div id="map" style="height: 600px; width: 600px; margin-top: 10px"></div>
-        </div>
-        <div class="col-md-6">
-            <div id="listing">
-                <table id="resultsTable">
-                    <tbody id="results"></tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <!-- Hotel Images -->
-    <div class="row col-md-12">
-        <div id="hotelImageDiv"></div>
-    </div>
 
-    <!-- Hotel Information -->
-    <div style="display: none;">
-        <div id="info-content">
-            <table>
-                <tr id="iw-url-row" class="iw_table_row">
-                    <td id="iw-icon" class="iw_table_icon"></td>
-                    <td id="iw-url"></td>
-                </tr>
-                <tr id="iw-address-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Address:</td>
-                    <td id="iw-address"></td>
-                </tr>
-                <tr id="iw-phone-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Telephone:</td>
-                    <td id="iw-phone"></td>
-                </tr>
-                <tr id="iw-rating-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Rating:</td>
-                    <td id="iw-rating"></td>
-                </tr>
-                <tr id="iw-website-row" class="iw_table_row">
-                    <td class="iw_attribute_name">Website:</td>
-                    <td id="iw-website"></td>
-                </tr>
-                <button id="direct-button">Directions</button>
-            </table>
-        </div>
-    </div>
 
-    <!-- Google Directions -->
-    <div class="row col-md-12">
-        <div id="directions-panel">
-            <p>Directions to your destination:
-                <span id="directions-results"></span>
-            </p>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <nav class="navbar navbar-expand-lg" id="footer" style="background-color: #002763">
-        <!-- <p id="p1">Privacy Policy</p>
-                <p id="p2">Terms of Service</p>
-        <div class="container">
-            <a class="navbar-brand" href="#"></a>
-        </div> -->
-    </nav>
 
-    <!-- Menu toggle script -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $("#menu-toggle").click(function (e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("menuDisplayed");
-        });
-    </script>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Google API -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCE4670cjLFnTOHnwtznTyGJj2ZcgHmfYc&libraries=places&callback=initMap"
         async defer></script>
-    <!-- Popper.JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+    <!-- Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
-    <!-- Bootstrap JS -->
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm"
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
         crossorigin="anonymous"></script>
+
 </body>
 
 </html>
