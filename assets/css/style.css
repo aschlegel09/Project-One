@@ -136,3 +136,41 @@ body {
 border :2px solid white;
 color:  #2e6ece;
  }
+
+
+
+
+
+ 
+/* NEWLY ADDED */
+
+/* Loading GIF */
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Highlighting Airline Entries */
+#airline_entries:hover {
+    background-color: rgba(70, 103, 165, 0.692);
+}
+
+/* Hotel Images */
+#hotelImage {
+    max-width: 450px;
+    max-height: 450px;
+}
+
+#hotelImageDiv {
+    max-width: 450px;
+    max-height: 450px;
+}
