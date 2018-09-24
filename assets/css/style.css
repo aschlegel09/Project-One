@@ -1,56 +1,17 @@
-#p2 {
-    color: white;
-    position: absolute;
-    left: 200px;
-    bottom: 8px;
-}
-
-#p1 {
-    color: white;
-    position: absolute;
-    left: 40px;
-    bottom: 8px;
-}
-
-.navbar.transparent.navbar-inverse .navbar-inner {
-    border-width: 0px;
-    -webkit-box-shadow: 0px 0px;
-    box-shadow: 0px 0px;
-    background-color: rgba(0,0,0,0.0);
-    background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-    background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-}
-
-#dropdown-menu {
-    background-color:  #002763;
-    color: white;
-    background:transparent;
-}
-
-.container edit{
-    position: absolute;
-    left: 400px;
-}
-
-.card {
-    width: 400px;
-
-}
-
-.card-body {
-    /* width: 400px; */
+body {
+    background-image: url("../images/plane.gif");
     
 }
-
 
 #logo {
  width: 282px;
 height: 115px;
-background-image: url("../images/logo.png");
+/* background-image: url("logo.png"); */
 background-size:cover;
 background-repeat: no-repeat;
-position: relative;
-top: 0px;
+position: absolute;
+top: 0;
+left:0;
 }
 
 body {
@@ -60,87 +21,93 @@ body {
     
  }
 
- .navbar1 {
-     color: white;
-     position: absolute;
-     top: 0;
-     right: 100px;
-     font-size: 20px;
-     /* opacity: 0; */
- }
-
- .navbar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 1400px;
-    height: 70px;
-    
-
- }
-
+ 
  .jumbotron {
     background-image: url("../images/plane.gif");
-    background-position: 0% 10%;
-    background-size: cover;
+    width: 0px;
+    height:0px;
+    
  }
- #sidebar-wrapper {
-    z-index: 1;
-    position: absolute;
-    width:0;
-    height:100%;
-    overflow-y: hidden;
-    background: #003d99;
-    /* border: 2px solid red; */
-    opacity: 0.9;
- }
+ 
  label {
-    color: white;
+    color: black;
+ }
+ h3 {
+    font-family: 'Lobster', monospace;
+    padding: 10px;
+    background-color: #3498db;
+    opacity: 0.5;
  }
  #page-content-wrapper {
     widows: 100%;
     position: absolute;
     padding: 15px;
-    /* border: 5px solid green; */
- }
+ }   
  
- #wrapper.menuDisplayed #sidebar-wrapper{
-    width:350px;
- }
- 
- #wrapper.menuDisplayed #page-content-wrapper{
-    padding-left: 250px;
- }
- 
- .sidebar-nav {
-    padding: 0;
-    list-style: none;
- }
- .edit {
-    height: 100%;
- }
- .sidebar-nav li{
-    text-indent:20px;
-    line-height:40px;
- }
- .sidebar-nav li .form-group{
-    display: block;
-    text-decoration: none;
-    color: #ddd;
-    /* width: 250px; */
- }
- .sidebar-nav li .form-group:hover{
-    background: #2e6ece;
- }
+
  #menu-toggle{
 border :2px solid white;
 color:  #2e6ece;
  }
 
+#flightResults {
+    display: flex;
+	justify-content: left;
+    flex-flow: wrap;
+}
+#airline_entries {
+    margin: 10px;
+    padding: 5px;
+    width: 275px;
+    height: 184px;
+    background: white;
+    background-color: white;
+    -webkit-animation-name: example; /* Safari 4.0 - 8.0 */
+    animation-name: example;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
 
+#logo {
+    vertical-align: middle;
+    border-style: none;
+    position: absolute;
+    top: 20px;
+    left: 60px;
+}
 
+/* Safari 4.0 - 8.0 */
+@-webkit-keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: white;}
+    100% {background-color: green;}
+}
 
+/* Standard syntax */
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: white;}
+    100% {background-color: green;}
+}
 
+ #hotelImage{
+    margin: 10px 20px;
+    width: 420px;
+    height: 400px;
+}
+
+#listing {
+    margin: 10px;
+    width: 400px;
+    height: 420px;
+    overflow: auto;
+    left: 442px;
+    top: 0px;
+    cursor: pointer;
+    overflow-x: hidden;
+  }
  
 /* NEWLY ADDED */
 
@@ -164,13 +131,5 @@ color:  #2e6ece;
     background-color: rgba(70, 103, 165, 0.692);
 }
 
-/* Hotel Images */
-#hotelImage {
-    max-width: 450px;
-    max-height: 450px;
-}
 
-#hotelImageDiv {
-    max-width: 450px;
-    max-height: 450px;
-}
+

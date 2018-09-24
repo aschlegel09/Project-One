@@ -12,8 +12,7 @@ var city_Name = "";
 //When "submit" is clicked it will display all the avaiable flights
 $("#submit").on("click", function () {
 
-  event.preventDefault();
-
+  
   console.log("has been clicked")
 
   $("#flightResults").empty();
@@ -150,6 +149,7 @@ $("#submit").on("click", function () {
       };
 
       displayLoader();
+      $(".form-group").hide();
 
     }
 
@@ -185,8 +185,6 @@ function isSelected() {
 
   airportName(airportCode);
   console.log(city_Name);
-  // Here we could add a new variable to attach to search input
-  // var searchCityName = city_Name
 
 };
 
@@ -293,7 +291,7 @@ function initMap() {
 
   var directionsDisplay = new google.maps.DirectionsRenderer({
     map: map,
-    panel: document.getElementById('directions-panel')
+    panel: document.getElementById('right-panel')
   });
 
   directionsDisplay.addListener('directions_changed', function () {
@@ -338,7 +336,7 @@ function computeTotalDistance(result) {
     total += myroute.legs[i].distance.value;
   }
   total = total / 1000;
-  document.getElementById('directions-results').innerHTML = total + ' km';
+  document.getElementById('total').innerHTML = total + ' km';
 };
 //END OF GOOGLE DIRECTIONS API ----------------------------------------------------------------------------------------
 
