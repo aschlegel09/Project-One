@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -13,16 +13,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <!-- Local CSS File -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/st.css">
     <!-- Airline Codes -->
     <script src="assets/javascript/airlineCodes.js" defer></script>
     <!-- City Names -->
     <script src="assets/javascript/cityNames.js" defer></script>
     <!-- Flight API & Google Javascript-->
     <script src="assets/javascript/amadeus.js" defer></script>
-    <!-- Google font -->
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Roboto" rel="stylesheet">
 
     <title>Project One</title>
 </head>
@@ -30,76 +29,168 @@
 <body>
 
 
-
     <!-- Sidebar -->
-    <div class="jumbotron" ">
-        <img src = " assets/images/logo.png" id="logo"></div>
-    <h1 class="display-4" style="text-align: left; "></h1>
+    <nav class="nav shadow-lg mb-5">
+        <img id="logo" src="assets/images/logo.png">
+    </nav>
 
+
+    <div id="welcome-div" class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="card wel shadow-lg mb-5 rounded">
+                <div class="card-header">
+                    <h1 class="d-flex justify-content-center headerStyle">Welcome!<i class="fa fa-paper-plane ml-1"
+                            aria-hidden="true"></i>
+                    </h1>
+                </div>
+                <div class="card-body d-flex justify-content-center">
+                    A travel itinerary using Amadeus API, Google Maps, Hotels, and a Directions API's. User
+                    can search flights by region,look up hotels based on which city they're flying into and
+                    find the
+                    fastest directions to the hotel of choice.
+                </div>
+                <div class="d-flex justify-content-center mb-3">
+                    <button type="button" class="getstarted btn btn-primary headerStyle">Get Started</button></div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
     </div>
-    <!-- Flights API -->
-    <div class="wrapper" id="wrapper" style="background-color:beige; border-style: solid; border-color: #3f88f5; margin: 50px auto; width: 1300px">
-        <h3 style="text-align: center">Book a Flight</h3>
-       
-        <div class="container" style="margin-left: 20px; margin-right: 20px">
-            <div class="row">
-                <div class="col-md-4" style="margin-top: 30px;">
-                    <div class="form-group">
-                        <label for="origin">Origin</label>
-                        <input type="text" class="form-control" id="origin" placeholder="PHL">
-                        <small id="originHelp" class="form-text text-muted">Should be three letters</small>
 
-                        <label for="destination">Destination</label>
-                        <input type="text" class="form-control" id="destination" placeholder="JFK">
-                        <small id="destinationHelp" class="form-text text-muted">Should be three letters</small>
-
-                        <label for="destination">Departure Date</label>
-                        <input type="date" class="form-control" id="depDate" placeholder="2018-01-30">
-
-                        <label for="destination">Destination</label>
-                        <input type="date" class="form-control" id="retDate" placeholder="2018-02-19">
-
-                        <button type="button" class="btn btn-outline-primary mt-3" id="submit" style="margin-top: 10px">Search</button>
-
+    <!-- About Us cards -->
+    <div id="aboutus-div">
+        <div class="d-flex justify-content-center">
+            <div id="cards-div" class="card ab-cards">
+                <div class="card-body">
+                    <h2 class="card-title d-flex justify-content-center headerStyle">About Us</h2>
+                    <div class="card">
+                        <img class="card-img-top" src="https://avatars2.githubusercontent.com/u/22031347?s=460&v=4" alt="Card image cap">
+                        <div class="card-body">
+                            <h5>Junwah Ng (Jay)</h5>
+                            <p class="card-text">
+                                <i class="fab fa-github mr-1"></i><a href="https://github.com/jn394">gitHub Link</a>
+                                <br>
+                                <i class="fab fa-linkedin mr-1"></i><a href="www.linkedin.com/in/junwah-ng-9691b736">Linkedin
+                                    Link</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="https://avatars3.githubusercontent.com/u/28871636?s=460&v=4"
+                            alt="Card image cap">
+                        <div class="card-body">
+                            <h5>Andrew Schlegel</h5>
+                            <p class="card-text">
+                                <i class="fab fa-github mr-1"></i><a href="https://github.com/aschlegel09">gitHub Link</a>
+                                <br>
+                                <i class="fab fa-linkedin mr-1"></i><a href="https://www.linkedin.com/in/andrewschlegel09/">Linkedin
+                                    Link</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="https://avatars1.githubusercontent.com/u/38511905?s=460&v=4" alt="Card image cap">
+                        <div class="card-body">
+                            <h5>Ferew Tucho</h5>
+                            <p class="card-text">
+                                <i class="fab fa-github mr-1"></i><a href="https://github.com/Ferewtucho">gitHub Link</a>
+                                <br>
+                                <i class="fab fa-linkedin mr-1"></i><a href="https://www.linkedin.com/in/ferew-tucho-627880167/">Linkedin
+                                    Link</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="https://avatars2.githubusercontent.com/u/40322991?s=460&v=4" alt="Card image cap">
+                        <div class="card-body">
+                            <h5>Perri Specter</h5>
+                            <p class="card-text">
+                                <i class="fab fa-github"></i><a href="https://github.com/plspecter">gitHub Link</a>
+                                <br>
+                                <i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/perri-specter-b8707aa6/">Linkedin
+                                    Link</a>
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div id="loader" class="loader"></div>
-            <div id="flightResults"></div>
+        </div>
+    </div>
+
+    <!-- Flight Search and Entries -->
+    <div id="flight-body">
+        <div class="row">
+
+            <div id="s-col" class="col-md-2">
+                <div id="flight-search-body" class="form-group p-3">
+                    <h3 class="headerStyle">Book Flights</h3>
+                    <label for="origin">Origin</label>
+                    <input type="text" class="form-control" id="origin" placeholder="PHL">
+                    <small id="originHelp" class="form-text text-muted">Should be three letters</small>
+
+                    <label for="destination">Destination</label>
+                    <input type="text" class="form-control" id="destination" placeholder="JFK">
+                    <small id="destinationHelp" class="form-text text-muted">Should be three letters</small>
+
+                    <label for="destination">Departure Date</label>
+                    <input type="date" class="form-control" id="depDate" placeholder="2018-01-30">
+
+                    <label for="destination">Destination</label>
+                    <input type="date" class="form-control" id="retDate" placeholder="2018-02-19">
+
+                    <button type="button" class="btn btn-primary mt-3 headerStyle" id="submit" style="margin-top: 10px">Search<i
+                            class="fa fa-search ml-1" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="col">
+                <div id="loader">
+                    <img class="blur-box" src="https://www.ritztravels.com/Content/images/loading.gif"></div>
+                <div id="flightResults"></div>
+            </div>
+
+            <!-- Location Keys -->
+            <div id="keys">
+                <div class="card wel shadow-lg mb-5 rounded">
+                    <div class="card-header headerStyle d-flex justify-content-center">
+                        <h5>Location Key</h5>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Rome, Italy - FCO</p>
+                        <p class="card-text">Tokyo, Japan - HND</p>
+                        <p class="card-text">Paris, France - CDG</p>
+                        <p class="card-text">Hawaii - HNL</p>
+                    </div>
+                </div>
+            </div>
 
         </div>
     </div>
 
+
+
     <!-- Google Maps -->
-    <div class="wrapper" id="wrapper" style="background-color:beige; border-style: solid; border-color: #3f88f5; margin: 50px auto; width: 1300px">
-
-        <h3 style="text-align: center">Hotel Near Your City</h3>
-        
-        <div class="container" style="margin-left: 20px;margin-right: 20px; margin-bottom: 30px">
-            <div class="row">
-                <div class="col-md-4">
-
-                    <input id="autocomplete" id="locationField" placeholder="Enter a city" type="text" style="border-radius: .25rem; width: 100%; height: calc(2.25rem + 2px);padding: .375rem .75rem;" />
-
-
-                    <div id="map" style="height: 400px; width: 380px; margin-top: 10px"></div>
-                    <!-- Google Directions -->
-
-                    <div id="right-panel">
-                        <p>Total Distance: <span id="total"></span></p>
-                    </div>
+    <div id="google-maps">
+        <div class="row mt-3">
+            <div class="col-md-4 ml-3">
+                <input id="autocomplete" id="locationField" placeholder="Destination city" type="text" style="border-radius: .25rem; width: 50%; height: calc(2.25rem + 2px);padding: .375rem .75rem;" />
+                <div id="map" style="height: 700px; width: 100%; margin-top: 10px"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="listing">
+                    <table id=" resultsTable">
+                        <tbody id="results"></tbody>
+                    </table>
                 </div>
-                <div class="col-md-4">
-                    <div id="listing">
-
-                        <table id=" resultsTable">
-                            <tbody id="results"></tbody>
-                        </table>
-                    </div>
+            </div>
+            <!-- Hotel Images -->
+            <div class="col-md-4">
+                <div class="row">
+                    <div id="hotelImageDiv" style="margin-left: 20px"></div>
                 </div>
-                <!-- Hotel Images -->
-                <div class="col-md-4">
-                    <div id="hotelImageDiv" style = "margin-left: 20px"></div>
+                <div class="row">
+                    <div id="selected-airline" class="bg-white rounded mt-3 ml-4"></div>
                 </div>
             </div>
 
@@ -126,16 +217,24 @@
                             <td class="iw_attribute_name">Website:</td>
                             <td id="iw-website"></td>
                         </tr>
-                        <button id="direct-button">Directions</button>
+                        <button id="direct-button" class="btn headerStyle">Directions<i class="fa fa-map-marker ml-1"
+                                aria-hidden="true"></i>
+                        </button>
                     </table>
                 </div>
             </div>
+
         </div>
     </div>
 
-
-
-
+    <div id="google-directions">
+        <div class="row d-flex justify-content-center">
+            <!-- Google Directions -->
+            <div id="right-panel">
+                <h4 class="d-flex justify-content-center">Total Distance: <span id="total"></span></h4>
+            </div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
