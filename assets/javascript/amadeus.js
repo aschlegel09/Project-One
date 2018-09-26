@@ -1,3 +1,15 @@
+$("#flight-body").hide();
+$("#google-maps").hide();
+$("#google-directions").hide();
+
+$(".getstarted").on("click", function () {
+  console.log("Started got clicked");
+  $("#welcome-div").hide();
+  $("#aboutus-div").hide();
+  $("#flight-body").show();
+})
+
+
 //AMADEUS (FLIGHTS API)-------------------------------------------------------------------
 
 //Hiding the Loading Gif
@@ -12,10 +24,11 @@ var city_Name = "";
 //When "submit" is clicked it will display all the avaiable flights
 $("#submit").on("click", function () {
 
-  
+
   console.log("has been clicked")
 
   $("#flightResults").empty();
+  $("#keys").hide();
 
   //Loader
   displayLoader();
@@ -125,21 +138,21 @@ $("#submit").on("click", function () {
 
       //Adding it to HTML
       $("#flightResults").append(
-        "<div id='airline_entries'>" + airlineName +
-        "<br><a id='notice" + i + "'></a>" +
-        "<br><a id='num" + i + "'>" + response.results[i].itineraries[0].outbound.flights[0].origin.airport +
-        " --> " + response.results[i].itineraries[0].outbound.flights[0].destination.airport + "</a>" +
+        "<div id='airline_entries' class='card shadow' style='width:20rem'><div class='card-body'><h5 id='airline-title' class='card-title'>" + airlineName +
+        "</h5><br><a id='notice" + i + "'></a>" +
+        "<br><a id='num" + i + "'>" + response.results[i].itineraries[0].outbound.flights[0].origin.airport + " " +
+        "<i class='fa fa-arrow-circle-right' aria-hidden='true'></i>" + " " + response.results[i].itineraries[0].outbound.flights[0].destination.airport + "</a>" +
         "<br>" + stand_depTime + " - " + stand_arrivalTime +
         "<br> Seats Remaining: " + response.results[i].itineraries[0].outbound.flights[0].booking_info.seats_remaining +
         "<br> Duration: " + response.results[i].itineraries[0].outbound.duration +
         "<br> Price: $" + price +
-        "</div><hr>");
+        "</div></div>");
 
       //Addition Stops
       if (response.results[i].itineraries[0].outbound.flights.length > 1) {
         console.log("1-stop");
         $("#notice" + i).append("1-Stop");
-        $("#num" + i).append(" --> " + response.results[i].itineraries[0].outbound.flights[1].destination.airport);
+        $("#num" + i).append(" " + "<i class='fa fa-arrow-circle-right' aria-hidden='true'></i>" + " " + response.results[i].itineraries[0].outbound.flights[1].destination.airport);
         airportCode = response.results[i].itineraries[0].outbound.flights[1].destination.airport;
       }
       else {
@@ -171,8 +184,10 @@ function displayLoader() {
 
 //Selecting Airline
 function isSelected() {
+  $("#flightResults").hide();
   console.log("Has Been Selected");
   console.log(airportCode);
+  $("#google-maps").show();
 
   function airportName(code) {
     for (var i = 0; i < 2891; i++) {
@@ -183,6 +198,10 @@ function isSelected() {
     };
   };
 
+  console.log($(this))
+  console.log($(this)[0].innerHTML);
+
+  $("#selected-airline").append($(this)[0].innerHTML);
   airportName(airportCode);
   console.log(city_Name);
 
@@ -303,7 +322,7 @@ function initMap() {
   //Click event for showing the directions
   $("#direct-button").on("click", function () {
     console.log("directions clicked")
-
+    $("#google-directions").show();
     console.log(hotelName);
 
     displayRoute(city_Name, hotelName, directionsService,
@@ -335,8 +354,8 @@ function computeTotalDistance(result) {
   for (var i = 0; i < myroute.legs.length; i++) {
     total += myroute.legs[i].distance.value;
   }
-  total = total / 1000;
-  document.getElementById('total').innerHTML = total + ' km';
+  total = Math.round(((total / 1000) / 1.609344) * 100) / 100;
+  document.getElementById('total').innerHTML = " " + total + ' miles';
 };
 //END OF GOOGLE DIRECTIONS API ----------------------------------------------------------------------------------------
 
@@ -350,7 +369,7 @@ function onPlaceChanged() {
     map.setZoom(15);
     search();
   } else {
-    document.getElementById('autocomplete').placeholder = 'Enter a city';
+    document.getElementById('autocomplete').placeholder = 'Destination city';
   }
 };
 
@@ -452,6 +471,7 @@ function showInfoWindow() {
     });
   hotelName = marker.placeResult.name;
   console.log(hotelName);
+  console.log(marker)
 
 };
 
