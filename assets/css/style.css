@@ -1,4 +1,6 @@
-
+* {
+    box-sizing: border-box;
+}
 .nav {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.3);
@@ -13,6 +15,7 @@
 #welcome-div{
     margin-top: 50px;
     color: white;
+    width:100%;
 }
 
 .wel{
@@ -56,16 +59,20 @@ color: white;
 
 #keys{
 position: relative;
-right: 1100px;
+right: 1000px;
 bottom: 30px;
 color: white;
+}
+
+.row {
+    width:100%;
 }
 
 #loader{
     background-color: white;
     width: 200px;
     position: relative;
-    bottom: -200px;
+    bottom: -150px;
     left: 400px;
 }
 
@@ -109,7 +116,7 @@ color: white;
 }
 
 body {
-    background-image: url("https://i.pinimg.com/originals/e1/a6/54/e1a6545d466d12ea9588613dc31167fd.jpg");
+    background-image: url("../images/background.jpg");
     background-size: cover;
     font-family: 'Roboto', sans-serif;
 }
@@ -122,4 +129,228 @@ body {
 
 .headerStyle {
     font-family: 'Lobster', cursive;
+}
+
+@media screen and (max-width:1024px) {
+.nav {
+    width: 100%;
+}
+#keys {
+    bottom: 30px;
+    left: 60px;
+}
+#flightResults {
+    display: flex;
+    justify-content: left;
+    flex-flow: wrap;
+    width: 700px;
+    position: relative;
+    left: -80px;
+}
+#flight-search-body {
+    width: 220px;
+}
+#hotelImage {
+    max-width: 380px;
+}
+.col {
+    position: relative;
+    right: -100px;
+    max-width:0%;
+}
+#loader {
+    bottom: -170px;
+    left:175px;
+}
+}
+
+@media screen and (max-width:768px) {
+.nav {
+    width: 100%;
+}
+#keys {
+    right: 400px;
+}
+#logo {
+    width: 30%;
+    position: relative;
+    left: 20px;
+}
+#flight-search-body {
+    width: 190px;
+    margin-right: 10px;
+}
+.col {
+    position: relative;
+    right: -10px;
+}
+#loader {
+    bottom: -160px;
+    left: 160px;
+}
+#autocomplete {
+    width: 70% !important;
+}
+#map {
+    width:240px;
+}
+#flightResults {
+    display: flex;
+    justify-content: left;
+    flex-flow: wrap;
+    width: 700px;
+}
+#google-maps {
+    width:720px;
+    margin-left: 20px;
+}
+
+#hotelImage {
+    max-width: 270px;
+}
+#right-panel {
+    margin-left: 20px;
+}
+}
+
+@media screen and (max-width:425px) {
+.nav {
+    width: 100%;
+}
+#logo {
+    width:50%;
+}
+#keys {
+    left: 180px;
+    bottom: 500px;
+}
+#flight-search-body {
+    width: 175px;
+}
+#listing {
+    width: 369px;
+}
+.col-md-2 {
+    padding-left: 0 !important;
+}
+.row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+#map {
+    margin-bottom: 10px;
+}
+#google-maps {
+    width:370px;
+}
+#loader {
+    bottom: 250px;
+    left: 180px;
+}
+#flightResults {
+    width: 380px;
+    position: relative;
+    left: 10px;
+}
+.blur-box {
+    width: 190px;
+}
+#hotelImage {
+    margin-top: 20px;
+    max-width: 270px;
+}
+}
+@media screen and (max-width:375px) 
+{.nav {
+    width: 100%;
+}
+#logo {
+    width: 50%;
+}
+#keys {
+    left: -9px;
+    bottom: 50px;
+}
+#flight-search-body {
+    margin-top: 0px;
+    width: 260px;
+}
+#google-maps {
+    width:290px;
+    padding:0;
+    padding-top: 5px;
+}
+.col {
+    position: relative;
+    right:-12px;
+}
+#loader {
+    bottom: 20px;
+    left: 40px;
+}
+#flightResults {
+    width: 280px;
+    position: relative;
+    left: -10px;
+}
+#right-panel {
+    margin-left: 0px;
+}
+#map {
+    margin-bottom: 10px;
+}
+#listing {
+    width: 264px;
+}
+#hotelImage {
+    width:220px;
+    height:200px;
+}
+}
+@media screen and (max-width:320px) {
+.nav {
+    width: 100%;
+}
+#logo {
+    width: 50%;
+}
+#keys {
+    left: -9px;
+    bottom: 50px;
+}
+#flight-search-body {
+    margin-top: 0px;
+    width: 260px;
+}
+#google-maps {
+    width:290px;
+    padding:0;
+    padding-top: 5px;
+}
+.col {
+    position: relative;
+    right:-12px;
+}
+#loader {
+    bottom: 20px;
+    left: 40px;
+}
+#flightResults {
+    width: 280px;
+    position: relative;
+    left: -10px;
+}
+#right-panel {
+    margin-left: 0px;
+}
+#map {
+    margin-bottom: 10px;
+}
+#listing {
+    width: 264px;
+}
+#hotelImage {
+    width:200px;
+    height:190px;
+}
 }
