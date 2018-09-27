@@ -59,7 +59,7 @@ color: white;
 
 #keys{
 position: relative;
-right: 1000px;
+left: -950px;
 bottom: 30px;
 color: white;
 }
@@ -221,7 +221,7 @@ body {
     width:50%;
 }
 #keys {
-    left: 180px;
+    left: 160px;
     bottom: 500px;
 }
 #flight-search-body {
