@@ -67,7 +67,7 @@ $("#submit").on("click", function () {
 
       //Function for Airline Code Conversion
       function airLine_Name(code) {
-        for (var i = 0; i < 946; i++) {
+        for (var i = 0; i < Object.keys(airlineCode).length; i++) {
           if (code === Object.keys(airlineCode)[i]) {
             console.log("Correct");
             airlineName = airlineCode[Object.keys(airlineCode)[i]];
@@ -186,11 +186,11 @@ function displayLoader() {
 function isSelected() {
   $("#flightResults").hide();
   console.log("Has Been Selected");
-  console.log(airportCode);
+  console.log($("#destination").val());
   $("#google-maps").show();
 
   function airportName(code) {
-    for (var i = 0; i < 2891; i++) {
+    for (var i = 0; i < Object.keys(cityNames).length; i++) {
       if (code === Object.keys(cityNames)[i]) {
         console.log("Correct");
         city_Name = cityNames[Object.keys(cityNames)[i]];
@@ -202,7 +202,7 @@ function isSelected() {
   console.log($(this)[0].innerHTML);
 
   $("#selected-airline").append($(this)[0].innerHTML);
-  airportName(airportCode);
+  airportName(($("#destination").val()).toUpperCase());
   console.log(city_Name);
 
 };
